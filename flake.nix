@@ -2,7 +2,8 @@
   description = "Hellolib Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    utils.url = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs }: 
