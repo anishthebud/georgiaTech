@@ -6,4 +6,3 @@ stdenv.mkDerivation rec {
   src = ./.;
   nativeBuildInputs = [ cmake ];
 }
-

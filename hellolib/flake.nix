@@ -7,10 +7,10 @@
 
   outputs = { self, nixpkgs }: 
   let
-    hello_world_overlay = final: prev: {
-      hello_world = final.callPackage ./hellolib.nix { };
+    hellolib_overlay = final: prev: {
+      hellolib = final.callPackage ./default.nix { };
     };
-    my_overlays = [ hello_world_overlay ];
+    my_overlays = [ hellolib_overlay ];
 
     pkgs = import nixpkgs {
       system = "x86_64-linux";
@@ -18,7 +18,7 @@
     };
     in
     {
-      packages.x86_64-linux.default = pkgs.hello_world;
+      packages.x86_64-linux.default = pkgs.hellolib;
       overlays.default = nixpkgs.lib.composeManyExtensions my_overlays;
     };
 }
